@@ -17,26 +17,24 @@ const btnInput = document.getElementById('btnInput');
 var archivio=[];
 let database='';
 
-fetch(URL).then(
-  (response) => response.json(), // parsing per avere la stringa
-  (error) => alert(error)
-).then((data) => {
-  console.log(data);
-  const db = JSON.parse(data); // parsing per avere l’array
-  console.log('db', db);
-  database=db;
-});
 
 btnInput.addEventListener('keyup', function(){
   const inputText= btnInput.value;
-  myFun(btnInput.value);
+  fetch(URL).then(
+    (response) => response.json(), // parsing per avere la stringa
+    (error) => alert(error)
+  ).then((data) => {
+    console.log(data);
+    const db = JSON.parse(data); // parsing per avere l’array
+    console.log('db', db);
+    database=db;
+    myFun(btnInput.value);
+  });  
 });
 
 function myFun(btn){
   console.log('btn', btn);
 }
-
-
 
 
 /*
