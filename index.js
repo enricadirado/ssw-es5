@@ -12,6 +12,10 @@ ogni volta che premo una lettera viene visualizzato il match o il fatto che ci s
 
 */
 const URL = 'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=3abb610b';
+const result = document.getElementById('result');
+const btnInput = document.getElementById('btnInput');
+var archivio=[];
+let database='';
 
 fetch(URL).then(
   (response) => response.json(), // parsing per avere la stringa
@@ -20,38 +24,31 @@ fetch(URL).then(
   console.log(data);
   const db = JSON.parse(data); // parsing per avere l’array
   console.log('db', db);
+  database=db;
 });
 
-
-const result = document.getElementById('result');
-const btnInput = document.getElementById('btnInput');
 
 btnInput.addEventListener('keyup', function(){
   const inputText= btnInput.value;
-  if(new_archivio.length==1){
-    result.innerHTML=new_archivio[0];
-  }
+  myFun(btnInput.value);
 });
-
-var new_archivio=[];
 
 
 function myFun(btn){
-    while(db.length > 0) {
-      db.pop();
-    }
-    for (let x in archivio){
-      console.log(x);
-      for (let y in archivio[x]){
-        if (this[x][y].match(btn)){
-          new_archivio.push(this[x][y]);
-          console.log(new_archivio);
-        }
+  while(archivio.length > 0) {
+    archivio.pop();
+  }
+  for (let x in archivio){
+    console.log(x);
+    for (let y in archivio[x]){
+      if (this[x][y].match(btn)){
+        archivio.push(this[x][y]);
+        console.log(archivio);
       }
     }
-  };
-
-
+  }
+};
+  
 
 
 
