@@ -27,13 +27,19 @@ fetch(URL).then(
   database=db;
 });
 
-
 btnInput.addEventListener('keyup', function(){
   const inputText= btnInput.value;
   myFun(btnInput.value);
 });
 
+function myFun(btn){
+  console.log('btn', btn);
+}
 
+
+
+
+/*
 function myFun(btn){
   while(archivio.length > 0) {
     archivio.pop();
@@ -48,6 +54,8 @@ function myFun(btn){
     }
   }
 };
+
+*/
   
 
 
