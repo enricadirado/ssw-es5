@@ -42,6 +42,13 @@ btnInput.addEventListener('keyup', function(){
 });
 
 /*filter() crea un nuovo array con gli elementi che passano un test della funzione */
+/*devo accettare solo 
+- parole
+- parola spazio parola ecc
+- no spazio
+
+- devono trovabili anche con minuscolo
+*/
 function myFun(value){
   console.log('btn', this);
   const pattern=(/\w+/);
