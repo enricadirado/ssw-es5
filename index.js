@@ -25,20 +25,26 @@ btnInput.addEventListener('keyup', function(){
   ).then((data) => {
     /*console.log(data);*/
     const db = JSON.parse(data); // parsing per avere l’array
-    console.log('db', db);
-    database=db;
-    /*myFun(btnInput.value, database);*/
-    const archivio = database.filter(myFun, btnInput.value);
+    console.log('1 db', db);
+    
+    const archivio = db.filter(myFun, btnInput.value);
     console.log('archivio', archivio);
+    
+    if(archivio.length>1){
+      result.innerHTML="La ricerca ha prodotto "+ archivio.length + " risultati."
+    } else if (archivio.length==1){
+      result.innerHTML="Autore: "+ archivio[0].autore + "\nTitolo: "+ archivio[0].titolo;
+    }
+    
   });  
 });
 
+/*filter() crea un nuovo array con gli elementi che passano un test della funzione */
 function myFun(value){
   console.log('btn', this);
-  console.log('match', value.titolo.match(this));
   if (value.titolo.match(this)){
     return value.titolo;
-  }
+  } 
 }
 
 
