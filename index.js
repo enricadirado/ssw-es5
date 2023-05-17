@@ -34,6 +34,8 @@ btnInput.addEventListener('keyup', function(){
       result.innerHTML="La ricerca ha prodotto "+ archivio.length + " risultati."
     } else if (archivio.length==1){
       result.innerHTML="Autore: "+ archivio[0].autore + "\nTitolo: "+ archivio[0].titolo;
+    } else if (archivio.length==0){
+      result.innerHTML="La ricerca non ha prodotto nessun risultato. "
     }
     
   });  
@@ -42,7 +44,11 @@ btnInput.addEventListener('keyup', function(){
 /*filter() crea un nuovo array con gli elementi che passano un test della funzione */
 function myFun(value){
   console.log('btn', this);
-  if (value.titolo.match(this)){
+  const pattern=(/\w+/);
+  /*console.log('test', pattern.test("i p"));
+  const pattern = (/(\w?\s)*\w?/);*/
+  /*const str= value.titolo.concat(value.autore).toLocaleLowerCase();*/
+  if (value.titolo.match(this)&&(pattern.test(this))){
     return value.titolo;
   } 
 }
