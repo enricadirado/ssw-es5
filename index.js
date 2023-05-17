@@ -14,7 +14,6 @@ ogni volta che premo una lettera viene visualizzato il match o il fatto che ci s
 const URL = 'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=3abb610b';
 const result = document.getElementById('result');
 const btnInput = document.getElementById('btnInput');
-var archivio=[];
 let database='';
 
 
@@ -24,17 +23,25 @@ btnInput.addEventListener('keyup', function(){
     (response) => response.json(), // parsing per avere la stringa
     (error) => alert(error)
   ).then((data) => {
-    console.log(data);
+    /*console.log(data);*/
     const db = JSON.parse(data); // parsing per avere l’array
     console.log('db', db);
     database=db;
-    myFun(btnInput.value);
+    /*myFun(btnInput.value, database);*/
+    const archivio = database.filter(myFun, btnInput.value);
+    console.log('archivio', archivio);
   });  
 });
 
-function myFun(btn){
-  console.log('btn', btn);
+function myFun(value){
+  console.log('btn', this);
+  console.log('match', value.titolo.match(this));
+  if (value.titolo.match(this)){
+    return value.titolo;
+  }
 }
+
+
 
 
 /*
