@@ -25,11 +25,9 @@ btnInput.addEventListener('keyup', function(){
   ).then((data) => {
     /*console.log(data);*/
     const db = JSON.parse(data); // parsing per avere l’array
-    console.log('1 db', db);
-    
+    /*console.log('1 db', db);*/    
     const archivio = db.filter(myFun, btnInput.value);
-    console.log('archivio', archivio);
-    
+    console.log('archivioFINE', archivio);
     if(archivio.length>1){
       result.innerHTML="La ricerca ha prodotto "+ archivio.length + " risultati."
     } else if (archivio.length==1){
@@ -37,7 +35,6 @@ btnInput.addEventListener('keyup', function(){
     } else if (archivio.length==0){
       result.innerHTML="La ricerca non ha prodotto nessun risultato. "
     }
-    
   });  
 });
 
@@ -51,11 +48,13 @@ btnInput.addEventListener('keyup', function(){
 */
 function myFun(value){
   console.log('btn', this);
-  const pattern=(/\w+/);
-  /*console.log('test', pattern.test("i p"));
-  const pattern = (/(\w?\s)*\w?/);*/
+  /*console.log('test', pattern.test("ma"));*/
+  //const pattern = (/(\w*\s)*\w*/);
   /*const str= value.titolo.concat(value.autore).toLocaleLowerCase();*/
-  if (value.titolo.match(this)&&(pattern.test(this))){
+  if (value.titolo.match(this)){
+    console.log('this', this);
+    console.log('value', value);
+    console.log('titolo', value.titolo);
     return value.titolo;
   } 
 }
@@ -79,6 +78,9 @@ function myFun(btn){
   }
 };
 
+
+
+&&(pattern.test(this)
 */
   
 
