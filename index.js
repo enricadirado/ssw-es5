@@ -12,7 +12,7 @@ ogni volta che premo una lettera viene visualizzato il match o il fatto che ci s
 
 */
 const URL =
-  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=3abb610b';
+  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=16c0cb3f';
 const result = document.getElementById('result');
 const btnInput = document.getElementById('btnInput');
 
